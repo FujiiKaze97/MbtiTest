@@ -9,10 +9,11 @@ const Layout = ({ user, children }) => {
 
   return (
     <div>
-      <header class="py-3 px-3">
-        <nav class="flex justify-between">
+      <header className="py-3 px-3">
+        <nav className="flex justify-between">
           <Link to="/">홈</Link>
           <div className="space-x-4">
+            <Link to="/profile">프로필</Link>
             {user ? (
               <>
                 <button onClick={handleLogout}>로그아웃</button>
