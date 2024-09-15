@@ -9,7 +9,6 @@ const Signup = () => {
   const handleSignup = async (formData) => {
     try {
       const response = await register(formData);
-      console.log(response);
       navigate("/login")
     } catch (error) {
       alert("회원가입에 실패했습니다. 다시 시도해주세요.");

@@ -18,7 +18,6 @@ const TestPage = ({ user }) => {
       visibility: true,
     };
 
-    console.log("나의 mbti는?" + resultData);
     await createTestResult(resultData);
     navigate("/results");
   };

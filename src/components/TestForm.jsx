@@ -9,7 +9,6 @@ const TestForm = ({ onSubmit }) => {
     newAnswers[index] = answer;
     setAnswers(newAnswers);
 
-    console.log(answers);
   };
 
   const handleSubmit = (e) => {

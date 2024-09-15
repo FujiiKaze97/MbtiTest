@@ -22,6 +22,7 @@ const Layout = ({ user, setUser, children }) => {
             </h1>
           ) : null}
           <div className="space-x-4">
+            {user ? <Link to="/results">테스트 결과</Link> : null}
             {user ? <Link to="/test">mbti테스트</Link> : null}
             {user ? <Link to="/profile">프로필</Link> : null}
             {user ? (
