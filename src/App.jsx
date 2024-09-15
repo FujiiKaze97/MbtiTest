@@ -6,6 +6,8 @@ import Signup from "./pages/SignUp";
 import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import TestPage from "./pages/TestPage";
+import TestResultPage from "./pages/TestResultPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,25 +28,24 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/test"
+              element={
+                <ProtectedRoute user={user}>
+                  <TestPage user={user} />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/results"
+              element={
+                <ProtectedRoute user={user}>
+                  <TestResultPage user={user} />
+                </ProtectedRoute>
+              }
+            />
           </>
         </Routes>
-
-        {/*<Route
-            path="/test"
-            element={
-              <ProtectedRoute user={user}>
-                <TestPage user={user} />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/results"
-            element={
-              <ProtectedRoute user={user}>
-                <TestResultPage user={user} />
-              </ProtectedRoute>
-            }
-          />  */}
       </Layout>
     </Router>
   );

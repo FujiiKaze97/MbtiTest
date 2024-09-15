@@ -2,18 +2,28 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 // Props 로 꼭 children 만 받을 필요는 없답니다.
-const Layout = ({ user, children }) => {
+const Layout = ({ user, setUser, children }) => {
   const navigate = useNavigate();
   useEffect(() => {}, []);
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    setUser(null);
+    navigate("/");
+  };
 
   return (
     <div>
       <header className="py-3 px-3">
         <nav className="flex justify-between">
           <Link to="/">홈</Link>
+          {user ? (
+            <h1 className="text-4xl font-bold my-5 text-red-500">
+              {user.nickname}님 환영합니다.
+            </h1>
+          ) : null}
           <div className="space-x-4">
-            <Link to="/profile">프로필</Link>
+            {user ? <Link to="/test">mbti테스트</Link> : null}
+            {user ? <Link to="/profile">프로필</Link> : null}
             {user ? (
               <>
                 <button onClick={handleLogout}>로그아웃</button>
